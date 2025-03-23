@@ -8,7 +8,7 @@ import { IoMdClose } from 'react-icons/io';
 
 const Navbar = () => {
   
-  const [toggle,setToggle]=useState(true);
+  const [toggle,setToggle]=useState(false);
   return (
     <nav className={styles.navbar}>
         <div className={styles.navLinksWrapper}
