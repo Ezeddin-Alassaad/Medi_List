@@ -16,7 +16,7 @@ const HealthyPage = () => {
       >
         {/* Header */}
         <header className="bg-green-700 bg-opacity-80 text-white p-4 text-center text-2xl font-bold">
-          أسلوب الحياة الصحي
+      الحياة الصحية
         </header>
 
         {/* Main Content */}
