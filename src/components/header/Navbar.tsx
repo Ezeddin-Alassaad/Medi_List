@@ -20,7 +20,7 @@ const Navbar = () => {
       <Link onClick={()=>setToggle(false)} href="/" className={styles.navLink}> الرئيسية</Link>
       <Link onClick={()=>setToggle(false)} href="/articles" className={styles.navLink}> الأمراض </Link>
       <Link onClick={()=>setToggle(false)} href="/contact" className={styles.navLink}> من نحن</Link>
-      <Link onClick={()=>setToggle(false)} href="/healthy" className={styles.navLink}> أسلوب الحياة الصحي</Link>
+      <Link onClick={()=>setToggle(false)} href="/healthy" className={styles.navLink}> الحياة الصحية </Link>
         </ul></div>
       <div>
           <Link href="/" className={styles.logo}>List
