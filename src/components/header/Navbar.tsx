@@ -8,7 +8,7 @@ import { IoMdClose } from 'react-icons/io';
 
 const Navbar = () => {
   
-  const [toggle,setToggle]=useState(true);
+  const [toggle,setToggle]=useState(false);
   return (
     <nav className={styles.navbar}>
         <div className={styles.navLinksWrapper}
@@ -21,7 +21,7 @@ const Navbar = () => {
       <Link onClick={()=>setToggle(false)} href="/articles" className={styles.navLink}> الأمراض </Link>
       <Link onClick={()=>setToggle(false)} href="/contact" className={styles.navLink}> من نحن</Link>
       <Link onClick={()=>setToggle(false)} href="/healthy" className={styles.navLink}> أسلوب الحياة الصحي</Link>
-      </ul></div>
+        </ul></div>
       <div>
           <Link href="/" className={styles.logo}>List
            <LuPill/> Medi

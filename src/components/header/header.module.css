@@ -22,13 +22,13 @@
     color: green;
 }
 .navLinks{
-    margin-left: 800px;
+    margin-left: 700px;
 
 }
 .navLink{
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 600;
-    margin: 0 12px;
+    margin: 0 2px;
 
 }
 
@@ -40,7 +40,7 @@
 
 .btn{
     cursor: pointer;
-    background-color: blue;
+    background-color: green;
     color: white;
     border-radius: 10px;
     padding: 5px 10px;
@@ -57,11 +57,16 @@
     display: none;
 }
 .btn:hover{
-    background-color: darkblue;
+    background-color: green;
+    box-shadow: 0px 8px 15px rgba(0, 128, 0, 0.4);
+    transform: translateY(-3px);
+    transition: all 0.3s ease;
 }
 
 .navLink:hover{
-    color: darkblue;
+    color: green;
+    text-shadow: 1px 1px 5px rgba(0, 128, 0, 0.5);
+    transition: text-shadow 0.3s ease;
 }
 
 @media(max-width:1080px){
@@ -95,9 +100,7 @@
 
     .navLink{
         padding: 0;
-        margin: 12px 0;
-        
+        margin: 12px 0;     
     }
-
 }
 
