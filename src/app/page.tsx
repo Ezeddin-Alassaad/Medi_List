@@ -1,9 +1,21 @@
 import Link from "next/link";
 import Image from "next/image";
+import Head from "next/head";
 
 const HomePage = () => {
   return (
     <div className="relative min-h-screen text-white">
+       <Head>
+        <title>MediList - معلومات عن الأمراض المزمنة</title>
+        <meta name="description" content="اكتشف معلومات شاملة حول الأمراض المزمنة وطرق الوقاية لتعزيز صحتك." />
+        <meta name="keywords" content="MediList, الأمراض المزمنة, الوقاية, الصحة, نصائح طبية" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://medilist.vercel.app" />
+        <meta property="og:title" content="MediList - دليلك للصحة" />
+        <meta property="og:description" content="تعرف على الأمراض المزمنة وطرق الوقاية منها عبر موقع MediList." />
+        <meta property="og:image" content="https://medilist.vercel.app/og-image.jpg" />
+        <meta property="og:url" content="https://medilist.vercel.app" />
+      </Head>
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image 

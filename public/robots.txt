@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://medilist.vercel.app/sitemap.xml
