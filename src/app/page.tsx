@@ -42,22 +42,22 @@ const HomePage = () => {
 
         {/* Featured Sections */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
-          <div className="bg-white p-6 rounded-lg shadow-lg">
-            <h2 className="text-2xl font-semibold mb-4 text-center">الأمراض المزمنة</h2>
+          <div className="bg-[rgb(227,225,225)] p-6 rounded-lg shadow-lg">
+            <h2 className="text-2xl text-green-600 font-extrabold mb-4 text-center">الأمراض المزمنة</h2>
             <p className="text-gray-700">تعرف على السكري، ارتفاع ضغط الدم، وأمراض أخرى</p>
             <Link href="/articles" className="text-blue-500 mt-4 block text-center">
               استكشاف الأمراض
             </Link>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-lg">
-            <h2 className="text-2xl font-semibold mb-4 text-center">الوقاية والعلاج</h2>
+          <div className="bg-[rgb(227,225,225)] p-6 rounded-lg shadow-lg">
+            <h2 className="text-2xl text-green-600 font-extrabold mb-4 text-center">الوقاية والعلاج</h2>
             <p className="text-gray-700">تعلم طرق الوقاية وأحدث العلاجات الفعالة</p>
             <Link href="/healthy" className="text-blue-500 mt-4 block text-center">
               تعرف على المزيد
             </Link>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-lg">
-            <h2 className="text-2xl font-semibold mb-4 text-center">أسلوب حياة صحي</h2>
+          <div className="bg-[rgb(227,225,225)] p-6 rounded-lg shadow-lg">
+            <h2 className="text-2xl text-green-600 font-extrabold mb-4 text-center">أسلوب حياة صحي</h2>
             <p className="text-gray-700">اكتشف العادات الصحية التي تعزز حياتك</p>
             <Link href="/healthy" className="text-blue-500 mt-4 block text-center">
               احصل على نصائح
@@ -73,7 +73,7 @@ const HomePage = () => {
           <p className="text-xl text-white mb-6">
            و احصل على معلومات موثوقة لدعم صحتك واتخاذ قرارات أفضل لحياتك
           </p>
-          <Link href="/healthy" className="text-lg text-blue-600 hover:text-blue-900">
+          <Link href="/healthy" className="text-2xl font-extrabold text-green-600 hover:text-green-900">
            اكتشف كيف يمكن أن يساعدك MediList
           </Link>
         </div>
