@@ -3,7 +3,7 @@ import { Article } from "@/utils/types";
 
 const ArticlesPage = async () => {
   try {
-    const response = await fetch("https://cdn.jsdelivr.net/gh/Ezeddin-Alassaad/Diseases@ba3033e4234e4d2bd26d279f6d1bc19c1ac0ce1d/diseases.json");
+    const response = await fetch("https://cdn.jsdelivr.net/gh/Ezeddin-Alassaad/Diseases@546c7def36bf46c09b318c0a137a6efab2680fda/diseases.json");
 
     if (!response.ok) {
       throw new Error("Failed to fetch articles");

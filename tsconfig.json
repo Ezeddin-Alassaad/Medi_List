@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "moduleResolution": "node",
+    "esModuleInterop": true,
     "types": ["next", "react"],
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],

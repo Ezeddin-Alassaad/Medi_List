@@ -13,7 +13,7 @@ const Footer = () => {
             href="/" 
             className="text-3xl font-extrabold flex items-center justify-center md:justify-end"
           >
-           <span className="text-green-600">List </span> <LuPill className="mx-1" /> <span className="text-green-600">Medi</span>
+           <span className="text-green-600">Medi </span> <LuPill className="mx-1" /> <span className="text-green-600">List</span>
           </Link>
           <p className="mt-2 font-extrabold text-sm tracking-wide">
             مصدرك الموثوق للمعلومات الطبية

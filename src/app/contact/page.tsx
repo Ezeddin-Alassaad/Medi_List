@@ -9,7 +9,7 @@ import { LuMessageSquareMore } from "react-icons/lu";
 import { FaWhatsapp } from "react-icons/fa";
 
 const ContactPage = () => {
-  const whatsappLink = "https://wa.me/9661234567890?text=Hello%2C%20I%20have%20a%20question%20regarding%20MediList";
+  const whatsappLink = "https://wa.me/966559598098?text=Hello%2C%20I%20have%20a%20question%20regarding%20Sihati";
 
   return (
     <section 
@@ -25,7 +25,7 @@ const ContactPage = () => {
       >
         <h2 className="text-3xl font-bold text-green-800 text-center mb-4">من نحن</h2>
         <p className="text-gray-700 text-lg leading-relaxed text-center">
-          مرحبًا بكم في <span className="text-green-700 font-bold">MediList</span>، وجهتكم الأولى للحصول على معلومات موثوقة حول الأمراض المزمنة.
+          مرحبًا بكم في <span className="text-green-700 font-bold">Sihati</span>، وجهتكم الأولى للحصول على معلومات موثوقة حول الأمراض المزمنة.
           نحن نسعى إلى نشر الوعي الصحي وتوفير مصادر شاملة للمرضى والمختصين لمساعدتهم في التعامل مع الأمراض المزمنة بطريقة أفضل.
         </p>
       </motion.div>
@@ -52,11 +52,10 @@ const ContactPage = () => {
             <Input placeholder="الاسم الكامل" className="text-gray-800 bg-gray-100 border-none p-4" />
             <Input type="email" placeholder="البريد الإلكتروني" className="text-gray-800 bg-gray-100 border-none p-4" />
             <Textarea placeholder="اكتب رسالتك هنا..." className="text-gray-800 bg-gray-100 border-none p-4" rows={5} />
-            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-              <Button className="w-full bg-green-600 hover:bg-green-800 text-white font-bold py-3">
+              <Button className="w-full bg-green-600 hover:bg-green-800 text-white font-bold py-3"
+              onClick={() => window.open(whatsappLink, '_blank', 'noopener,noreferrer')}>
                 إرسال الرسالة عبر WhatsApp
               </Button>
-            </a>
           </motion.form>
         </div>
 
