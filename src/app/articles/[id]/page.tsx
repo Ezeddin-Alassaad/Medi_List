@@ -1,24 +1,21 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable */
 import { Article } from "@/utils/types";
-import Link from "next/link";
+import { FaBook, FaStethoscope, FaExclamationTriangle, FaDiagnoses, FaPills, FaLink } from 'react-icons/fa';
 
-// Step 1: Create video links array matching your JSON order
 const videoLinks = [
-  "https://youtu.be/Syw3DqawJ74?si=sCtdnRA0ddIFgqqL",       // 11. السكري
-  "https://youtu.be/NQy7ufCRWXE?si=XyiOLQKTx5wB0l_7",       // 12. الربو
-  "https://youtu.be/bmkamXLuiZM?si=3acXZqjUMj3LArMH",       // 13. التهاب الكبد ب
-  "https://youtu.be/Ou1gfXd96kA?si=N4ZI7e-zlhLOlAwQ",       // 14. التهاب المفاصل الروماتويدي
-  "https://youtu.be/tEhJYe8ICyM?si=XE6b-DZSK1-TlY7C",       // 15. السكتة الدماغية
-  "https://youtu.be/F_w92DZG2Jc?si=kRkww1KnnKUK2b9W",       // 16. الذئبة الحمامية
-  "https://youtu.be/rh3YPCGrDl8?si=wDHtFQEiVrBynzen",       // 17. التصلب المتعدد
-  "https://youtu.be/t2clDnSWf5g?si=-flk1fdK2GsUZ2cy",       // 18. السرطان
-  "https://youtu.be/Y4r09ewArf4?si=Ug81Wqm821fLyYdX",       // 19. الاكتئاب
-  "https://youtu.be/I6MmZkKADEk?si=nAWWPImD9ru0c8kd",       // 20. التليف الكيسي
-  "https://youtu.be/APs6JltknXA?si=3N6cpQB_78r5li7W",       // 25. الزهايمر
-  "https://youtu.be/8VraoicroFA?si=tOpjI5u9wvkfW3Fn",       // 26. أمراض الكلى
-  "https://youtu.be/JUPn8Vq2H4I?si=sFHl1jYXEKykZo85",       // 27. القولون العصبي
-  "https://youtu.be/_lRpFnFW_L8?si=H9d2-BbO5v4ssu3e",       // 28. الصداع النصفي
-  "https://youtu.be/urq_HdUY2Eg?si=y-UJ5-KLOsbyvW-D",       // 29. الصدفية
-  "https://youtu.be/J74IAXMWjk4?si=BMpWJyCXDugJY5Md"        // 30. فيبروميالغيا
+  "https://youtu.be/Syw3DqawJ74?si=sCtdnRA0ddIFgqqL",       // مرض السكري
+  "https://youtu.be/eb-92ppbW6I?si=BkyZ_hMmhjX2Eqxc",     // ارتفاع ضغط الدم
+  "https://youtu.be/5FC0QHQCdFs?si=CgiXNFNv4j7vbWLO",      // سرطان الثدي
+  "https://youtu.be/9aI6shQThDg?si=DhHIk0K5TFLvEf9U",     // سرطان الغدة الدرقية
+  "https://youtu.be/7GLx_EpmB2o?si=pPS3fcJJbcLoIw5t",     // سرطان القولون
+  "https://youtu.be/ifzlLq2TqXY?si=GNaBVLyJxTAfCeFo",     // الربو
+  "https://youtube.com/shorts/BPdOsfxu-Jg?si=AjaseigWl0TagxRO",     // حب الشباب
+  "https://youtu.be/KKxuCvcx4mQ?si=aARZ9_UhssoC_LIy",      // الثعلبة
+  "https://youtu.be/jmJRYb3nnY4?si=jCO8UW1l-Wb9O3zH",     // الصرع
+  "https://youtu.be/YgK52xFcn-A?si=Af_WIXsKgBFwehlu",     // اضطراب فرط الحركة ونقص الانتباه
+  "https://youtu.be/kklueIZIy2Q?si=dWVQPgFOZ34m57y0",      // فرط كوليسترول الدم
+  "https://youtu.be/Ou1gfXd96kA?si=ir7_ADaAPH8lNSta"       // التهاب المفاصل الروماتويدي
 ];
 
 interface PageProps {
@@ -27,12 +24,52 @@ interface PageProps {
 
 const fetchArticles = async () => {
   const response = await fetch(
-    "https://cdn.jsdelivr.net/gh/Ezeddin-Alassaad/Diseases@546c7def36bf46c09b318c0a137a6efab2680fda/diseases.json",
+    "https://cdn.jsdelivr.net/gh/Ezeddin-Alassaad/Diseases@200f972bcdaf2de98fc258d57d9aefd678dcf82e/diseases.json",
     { cache: "no-store" }
   );
 
   if (!response.ok) throw new Error("Failed to fetch articles");
   return response.json();
+};
+
+// Function to split the body into sections based on headers
+const splitBodyIntoSections = (body: string) => {
+  const sections = body.split(/\n(?=[^\n]+:)/);
+  return sections.map((section) => {
+    const [header, ...content] = section.split(":");
+    return { header: header.trim(), content: content.join(":").trim() };
+  });
+};
+
+// Function to process content into lists or paragraphs
+const processContent = (content: string) => {
+  const lines = content.split("\n").filter(line => line.trim() !== "");
+  if (lines.every(line => line.trim().startsWith("-"))) {
+    return (
+      <ul className="list-disc list-inside space-y-2">
+        {lines.map((line, index) => (
+          <li key={index} className="text-gray-700">{line.trim().substring(1).trim()}</li>
+        ))}
+      </ul>
+    );
+  } else {
+    return content.split("\n\n").map((paragraph, index) => (
+      <p key={index} className="text-gray-700 mb-4">{paragraph}</p>
+    ));
+  }
+};
+
+// Header icons mapping
+const headerIcons:Record<string, JSX.Element> = {
+  "تعريف المرض": <FaBook className="text-teal-600" />,
+  "الأعراض": <FaStethoscope className="text-teal-600" />,
+  "المضاعفات": <FaExclamationTriangle className="text-teal-600" />,
+  "التشخيص": <FaDiagnoses className="text-teal-600" />,
+  "الأنواع": <FaPills className="text-teal-600" />,
+  "العلاج": <FaPills className="text-teal-600" />,
+  "الأدوية": <FaPills className="text-teal-600" />,
+  "المراجع": <FaLink className="text-teal-600" />,
+  "النظام الغذائي الموصى به": <FaPills className="text-teal-600" />,
 };
 
 const SingleArticlePage = async ({ params }: PageProps) => {
@@ -46,42 +83,77 @@ const SingleArticlePage = async ({ params }: PageProps) => {
 
   if (!article) return <div className="text-center text-red-600 text-xl mt-10">Article not found</div>;
 
-  // Step 2: Find the corresponding video link
-  const articleIndex = articles.findIndex(a => a.id === article.id);
+  const articleIndex = articles.findIndex((a) => a.id === article.id);
   const videoUrl = videoLinks[articleIndex];
 
+  // Split the body into sections
+  const sections = splitBodyIntoSections(article.body);
+
   return (
-    <section
-      className="container mx-auto w-full px-5 pt-8 md:w-3/4 rtl:text-right relative bg-cover bg-center"
-      style={{
-        minHeight: "100vh",
-        minWidth: "100vw",
-        backgroundImage: "url('/background.jpg')",
-      }}
-    >
-      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-30"></div>
-      <div className="relative bg-white p-8 rounded-3xl shadow-2xl max-w-3xl mx-auto z-10 mt-20 md:mt-24 transition-transform transform hover:scale-105">
-        <h1 className="text-4xl font-bold text-gray-800 mb-6 text-center sm:text-3xl md:text-5xl leading-tight tracking-wide hover:text-blue-500 transition-all">
+    <section className="min-h-screen w-full px-4 py-12 bg-gradient-to-br from-teal-50 via-blue-100 to-purple-100 rtl:text-right">
+      <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-lg p-8 md:p-12 transition-all duration-300 hover:shadow-xl">
+        <h1 className="text-4xl md:text-5xl font-bold text-teal-900 mb-6 text-center tracking-wide">
           {article.title}
         </h1>
-        <div className="text-gray-400 text-center mb-6 text-sm sm:text-base italic">
+        <div className="text-gray-600 text-center mb-8 text-sm italic">
           {new Date().toLocaleDateString()}
         </div>
-        <div className="w-16 h-1 bg-gradient-to-r from-pink-500 via-purple-600 to-blue-500 mx-auto mb-8"></div>
-        <p className="text-lg text-gray-700 leading-relaxed sm:text-base md:text-lg mb-8">
-          {article.body}
-        </p>
-        <div className="flex justify-center">
-          {/* Step 3: Add dynamic video link */}
-          <Link
-            href={videoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-blue-600 text-white py-3 px-8 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105"
-          >
-            مشاهدة الفيديو
-          </Link>
+        <div className="w-24 h-1 bg-gradient-to-r from-teal-400 to-blue-500 mx-auto mb-12 rounded-full"></div>
+
+        {/* Table of Contents */}
+        <div className="mb-12">
+          <h3 className="text-xl font-medium text-gray-700 mb-4">المحتويات</h3>
+          <ul className="list-disc list-inside space-y-1">
+            {sections.map((section, index) => (
+              <li key={index}>
+                <a href={`#section-${index}`} className="text-blue-600 hover:underline">
+                  {section.header}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
+
+        {/* Render sections with icons and processed content */}
+        {sections.map((section, index) => (
+  <div key={index} id={`section-${index}`} className="mb-12 p-6 rounded-xl bg-gray-50 border-l-4 border-teal-400 shadow-sm hover:shadow-md transition-all duration-300">
+    <div className="flex items-center mb-4">
+      {headerIcons[section.header] || <FaBook className="text-teal-600" />}
+      <h2 className="text-2xl font-semibold text-teal-800 ml-2">{section.header}</h2>
+    </div>
+    {section.header === "المراجع" ? (
+      <ul className="list-decimal list-inside space-y-2">
+        {section.content.split("\n").map((ref, refIndex) => {
+          const [, url] = ref.split(". "); // Fixed: Removed unused 'number'
+          return (
+            <li key={refIndex}>
+              <a href={url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                {url}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    ) : (
+      processContent(section.content)
+    )}
+  </div>
+))}
+        {/* Embedded Video */}
+        {videoUrl && (
+          <div className="mt-12">
+            <h3 className="text-2xl font-semibold text-teal-800 mb-4">فيديو توضيحي</h3>
+            <div className="aspect-video">
+              <iframe
+               src={`https://www.youtube.com/embed/${videoUrl.split("/").pop()?.split("?")[0] || "default-fallback-id"}`}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full rounded-xl shadow-md"
+              ></iframe>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

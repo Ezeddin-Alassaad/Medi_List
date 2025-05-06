@@ -1,11 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
-import { ArrowRightIcon, ShieldCheckIcon} from '@heroicons/react/24/outline';
+import { ArrowRightIcon, ShieldCheckIcon } from '@heroicons/react/24/outline';
 
 const HomePage = () => {
   return (
-    <div className="relative min-h-screen text-white ">
+    <div className="relative min-h-screen text-white">
       <Head>
         <title>MediList - معلومات عن الأمراض المزمنة</title>
         <meta name="description" content="اكتشف معلومات شاملة حول الأمراض المزمنة وطرق الوقاية لتعزيز صحتك." />
@@ -43,6 +43,26 @@ const HomePage = () => {
           <Link href="#diseases" className="inline-flex items-center px-6 py-3 bg-green-600 text-white font-bold rounded-lg shadow-md hover:bg-green-700 transition duration-300">
             استكشف المزيد <ArrowRightIcon className="w-6 h-6 ml-2" />
           </Link>
+        </section>
+
+        {/* Statistics Section with Integrated Image */}
+        <section className="py-12 px-4 sm:px-8 bg-gray-100 text-gray-800" style={{ direction: 'rtl' }}>
+          <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6 transform transition-all hover:shadow-xl">
+            <div className="mb-6">
+              <Image 
+                src="/sa.png" 
+                alt="صورة توضيحية للأمراض المزمنة في المملكة العربية السعودية"
+                width={800}
+                height={400}
+                layout="responsive"
+                className="rounded-lg shadow-lg transform transition-all hover:scale-105"
+              />
+            </div>
+            <h2 className="text-3xl font-bold mb-6 text-center text-blue-700">نسبة الأمراض المزمنة المنتشرة حالياً في المملكة العربية السعودية</h2>
+            <p className="text-lg leading-relaxed">
+              وفقاً لنشرة إحصاءات الحالة الصحية لعام ٢٠٢٤ التي أصدرتها الهيئة العامة للإحصاء، فقد وأظهرت نتائج النشرة أن %18.95 من البالغين (15 سنة فأكثر) لديهم أحد الأمراض المزمنة، وكان من أبرز الأمراض المزمنة (السكري، ضغط الدم، الكوليسترول، أمراض القلب والشرايين، أمراض السرطان) وعلى مستوى الأطفال (أقل من 15 سنة) بلغت نسبة المصابين بأحد الأمراض المزمنة %9.4 وكان من أبرز الأمراض المزمنة (الربو، الحساسية، الأمراض الجلدية، فرط الحركة، التوحُّد، السكري، السرطان)، وبينت نتائج النشرة أن نسبة البالغين (15 سنة فأكثر) الذين يعانون من اكتئاب شديد بلغت %1.8، وكانت عند الإناث بنسبة %2.5 مقابل %1.4 عند الذكور، بينما بلغت نسبة الذين يعانون من القلق الشديد %0.2 كانت لدى الإناث بنسبة %0.4 مقابل %0.2 للذكور.[٢]
+            </p>
+          </div>
         </section>
 
         {/* Featured Diseases Section - Enhanced */}
