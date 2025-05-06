@@ -9,7 +9,7 @@ import { LuMessageSquareMore } from "react-icons/lu";
 import { FaWhatsapp } from "react-icons/fa";
 
 const ContactPage = () => {
-  const whatsappLink = "https://wa.me/966559598098?text=Hello%2C%20I%20have%20a%20question%20regarding%20Sihati";
+  const whatsappLink = "https://wa.me/966504920695?text=Hello%2C%20I%20have%20a%20question%20regarding%20Sihati";
 
   return (
     <section 
