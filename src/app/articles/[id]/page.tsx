@@ -24,7 +24,7 @@ interface PageProps {
 
 const fetchArticles = async () => {
   const response = await fetch(
-    "https://cdn.jsdelivr.net/gh/Ezeddin-Alassaad/Diseases@200f972bcdaf2de98fc258d57d9aefd678dcf82e/diseases.json",
+    "https://cdn.jsdelivr.net/gh/Ezeddin-Alassaad/Diseases@e34aa68b575521fcaa854c62ee7ce48769ff8095/diseases.json",
     { cache: "no-store" }
   );
 
@@ -116,36 +116,33 @@ const SingleArticlePage = async ({ params }: PageProps) => {
 
         {/* Render sections with icons and processed content */}
         {sections.map((section, index) => (
-  <div key={index} id={`section-${index}`} className="mb-12 p-6 rounded-xl bg-gray-50 border-l-4 border-teal-400 shadow-sm hover:shadow-md transition-all duration-300">
-    <div className="flex items-center mb-4">
-      {headerIcons[section.header] || <FaBook className="text-teal-600" />}
-      <h2 className="text-2xl font-semibold text-teal-800 ml-2">{section.header}</h2>
-    </div>
-    {section.header === "المراجع" ? (
-      <ul className="list-decimal list-inside space-y-2">
-        {section.content.split("\n").map((ref, refIndex) => {
-          const [, url] = ref.split(". "); // Fixed: Removed unused 'number'
-          return (
-            <li key={refIndex}>
-              <a href={url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-                {url}
-              </a>
-            </li>
-          );
-        })}
-      </ul>
-    ) : (
-      processContent(section.content)
-    )}
-  </div>
-))}
+          <div key={index} id={`section-${index}`} className="mb-12 p-6 rounded-xl bg-gray-50 border-l-4 border-teal-400 shadow-sm hover:shadow-md transition-all duration-300">
+            <div className="flex items-center mb-4">
+              {headerIcons[section.header] || <FaBook className="text-teal-600" />}
+              <h2 className="text-2xl font-semibold text-teal-800 ml-2">{section.header}</h2>
+            </div>
+            {section.header === "المراجع" ? (
+              <ul className="list-decimal list-inside space-y-2">
+                {section.content.split(", ").map((ref, refIndex) => (
+                  <li key={refIndex}>
+                    <a href={ref.trim()} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                      {ref.trim()}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              processContent(section.content)
+            )}
+          </div>
+        ))}
         {/* Embedded Video */}
         {videoUrl && (
           <div className="mt-12">
             <h3 className="text-2xl font-semibold text-teal-800 mb-4">فيديو توضيحي</h3>
             <div className="aspect-video">
               <iframe
-               src={`https://www.youtube.com/embed/${videoUrl.split("/").pop()?.split("?")[0] || "default-fallback-id"}`}
+                src={`https://www.youtube.com/embed/${videoUrl.split("/").pop()?.split("?")[0] || "default-fallback-id"}`}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen

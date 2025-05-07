@@ -43,7 +43,7 @@ const references = [
 
 const ArticlesPage = async () => {
   try {
-    const response = await fetch("https://cdn.jsdelivr.net/gh/Ezeddin-Alassaad/Diseases@200f972bcdaf2de98fc258d57d9aefd678dcf82e/diseases.json");
+    const response = await fetch("https://cdn.jsdelivr.net/gh/Ezeddin-Alassaad/Diseases@e34aa68b575521fcaa854c62ee7ce48769ff8095/diseases.json");
 
     if (!response.ok) {
       throw new Error("Failed to fetch articles");
