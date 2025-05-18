@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import { LuPill } from 'react-icons/lu';
 import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
+import Image from 'next/image';
 
 const Footer = () => {
   return (
@@ -13,7 +13,14 @@ const Footer = () => {
             href="/" 
             className="text-3xl font-extrabold flex items-center justify-center md:justify-end"
           >
-           <span className="text-green-600">Medi </span> <LuPill className="mx-1" /> <span className="text-green-600">List</span>
+            <Image
+                          src="/logo.png" 
+                          alt="Thssan Logo" 
+                          width={120} 
+                          height={40} 
+                          style={{ objectFit: 'contain' }}
+                        />
+           <span className="text-green-600">تحسَّن</span>
           </Link>
           <p className="mt-2 font-extrabold text-sm tracking-wide">
             مصدرك الموثوق للمعلومات الطبية

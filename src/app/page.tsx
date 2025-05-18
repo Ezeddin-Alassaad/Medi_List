@@ -7,15 +7,15 @@ const HomePage = () => {
   return (
     <div className="relative min-h-screen text-white">
       <Head>
-        <title>MediList - معلومات عن الأمراض المزمنة</title>
+        <title>Thssan - معلومات عن الأمراض المزمنة</title>
         <meta name="description" content="اكتشف معلومات شاملة حول الأمراض المزمنة وطرق الوقاية لتعزيز صحتك." />
-        <meta name="keywords" content="MediList, الأمراض المزمنة, الوقاية, الصحة, نصائح طبية" />
+        <meta name="keywords" content="Thssan, الأمراض المزمنة, الوقاية, الصحة, نصائح طبية" />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://medilist.vercel.app" />
-        <meta property="og:title" content="MediList - دليلك للصحة" />
-        <meta property="og:description" content="تعرف على الأمراض المزمنة وطرق الوقاية منها عبر موقع MediList." />
-        <meta property="og:image" content="https://medilist.vercel.app/og-image.jpg" />
-        <meta property="og:url" content="https://medilist.vercel.app" />
+        <link rel="canonical" href="https://Thssan.vercel.app" />
+        <meta property="og:title" content="Thssan - دليلك للصحة" />
+        <meta property="og:description" content="تعرف على الأمراض المزمنة وطرق الوقاية منها عبر موقع Thssan." />
+        <meta property="og:image" content="https://Thssan.vercel.app/og-image.jpg" />
+        <meta property="og:url" content="https://Thssan.vercel.app" />
       </Head>
 
       {/* Main Content with Scroll Snap */}
@@ -35,7 +35,7 @@ const HomePage = () => {
             <div className="absolute inset-0 bg-black/50" />
           </div>
           <h1 className="text-5xl font-extrabold mb-6 animate-fade-in">
-            مرحبًا بك في MediList
+            مرحبًا بك في تحسَّن
           </h1>
           <p className="text-2xl mb-12 max-w-2xl mx-auto animate-fade-in-delay">
             اكتشف معلومات شاملة حول الأمراض المزمنة وطرق الوقاية لتعزيز صحتك

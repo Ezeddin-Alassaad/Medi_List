@@ -3,8 +3,8 @@ import Link from 'next/link'
 import styles from "./header.module.css"
 import { useState } from 'react'
 import { FiMenu } from "react-icons/fi";
-import { LuPill } from "react-icons/lu";
 import { IoMdClose } from 'react-icons/io';
+import Image from 'next/image';
 
 const Navbar = () => {
   
@@ -22,9 +22,16 @@ const Navbar = () => {
       <Link onClick={()=>setToggle(false)} href="/contact" className={styles.navLink}> من نحن</Link>
       <Link onClick={()=>setToggle(false)} href="/healthy" className={styles.navLink}> الحياة الصحية </Link>
         </ul></div>
-      <div>
-          <Link href="/" className={styles.logo}>List
-           <LuPill/> Medi
+     
+        <div>
+          <Link href="/" className={styles.logo}>
+            <Image
+              src="/logo.png" 
+              alt="Thssan Logo" 
+              width={120} 
+              height={40} 
+              style={{ objectFit: 'contain' }}
+            />
           </Link>
           <div className={styles.menu}>
             {toggle? (<IoMdClose onClick={()=>setToggle(prev=>!prev)}/>):(<FiMenu onClick={()=>setToggle(prev=>!prev)}/>)}

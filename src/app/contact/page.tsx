@@ -9,7 +9,7 @@ import { LuMessageSquareMore } from "react-icons/lu";
 import { FaWhatsapp } from "react-icons/fa";
 
 const ContactPage = () => {
-  const whatsappLink = "https://wa.me/966504920695?text=Hello%2C%20I%20have%20a%20question%20regarding%20Medilist";
+  const whatsappLink = "https://wa.me/966504920695?text=Hello%2C%20I%20have%20a%20question%20regarding%20Thssan";
 
   return (
     <section 
@@ -25,7 +25,7 @@ const ContactPage = () => {
       >
         <h2 className="text-3xl font-bold text-green-800 text-center mb-4">من نحن</h2>
         <p className="text-gray-700 text-lg leading-relaxed text-center">
-          مرحبًا بكم في <span className="text-green-700 font-bold">MediList</span>، وجهتكم الأولى للحصول على معلومات موثوقة حول الأمراض المزمنة.
+          مرحبًا بكم في <span className="text-green-700 font-bold">تحسَّن</span>، وجهتكم الأولى للحصول على معلومات موثوقة حول الأمراض المزمنة.
           نحن نسعى إلى نشر الوعي الصحي وتوفير مصادر شاملة للمرضى والمختصين لمساعدتهم في التعامل مع الأمراض المزمنة بطريقة أفضل.
         </p>
       </motion.div>
